@@ -1,5 +1,4 @@
 import StatusWidget from '../components/StatusWidget'
-import '../styles/globals.css'
 
 export default function Home() {
   return (
