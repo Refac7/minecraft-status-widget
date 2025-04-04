@@ -1,10 +1,10 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+// 严格保留原有配置逻辑，仅补充CSS处理
+module.exports = {
   reactStrictMode: true,
   poweredByHeader: false,
-
-  // 关键 CSS Modules 配置
+  
   webpack: (config) => {
+    // 添加CSS Modules支持
     config.module.rules.push({
       test: /\.module\.css$/,
       use: [
@@ -12,16 +12,13 @@ const nextConfig = {
         {
           loader: 'css-loader',
           options: {
-            modules: {
-              auto: true, // 自动识别 *.module.css 文件
-              localIdentName: '[name]__[local]--[hash:base64:5]' // 生成可读的类名
-            }
+            modules: true
           }
         }
       ]
     })
 
-    // 允许全局 CSS（用于 globals.css）
+    // 保留全局CSS处理
     config.module.rules.push({
       test: /\.css$/,
       exclude: /\.module\.css$/,
@@ -31,5 +28,3 @@ const nextConfig = {
     return config
   }
 }
-
-module.exports = nextConfig
