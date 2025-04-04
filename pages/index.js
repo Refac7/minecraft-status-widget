@@ -3,7 +3,7 @@ import StatusWidget from '../components/StatusWidget'
 
 export async function getServerSideProps() {
   try {
-    const SERVER_IP = process.env.NEXT_PUBLIC_MC_SERVER || 'mc.neotec.uk'
+    const SERVER_IP = process.env.NEXT_PUBLIC_MC_SERVER || 'frp-net.com:46962'
     const res = await fetch(`https://api.mcsrvstat.us/2/${SERVER_IP}`)
     const serverData = await res.json()
     return { props: { serverData } }
