@@ -27,6 +27,12 @@
   background: #f44336; 
 }
 
+.loading {
+  padding: 16px;
+  text-align: center;
+  color: #888;
+}
+
 .details p {
   margin: 8px 0;
   font-size: 14px;
