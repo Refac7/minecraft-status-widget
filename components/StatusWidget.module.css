@@ -1,84 +1,52 @@
-/* 组件容器 */
-.widgetContainer {
-  background: #1a1a1a;
-  color: #e0e0e0;
-  padding: 16px;
+/* 完全保持原始样式结构，仅转换为CSS Modules格式 */
+.container {
+  background: #2d2d2d;
+  color: white;
+  padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  margin: 10px;
+  margin: 20px 0;
 }
 
-/* 标题样式 */
-.title {
-  margin: 0 0 16px 0;
-  font-size: 18px;
-  color: #4CAF50;
-}
-
-/* 状态指示器 */
-.statusIndicator {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-.online { background: #4CAF50; }
-.offline { background: #f44336; }
-
-/* 布局相关 */
 .statusBox {
   display: flex;
-  gap: 18px;
-  align-items: flex-start;
+  align-items: center;
+  gap: 20px;
 }
 
-.serverIcon {
-  width: 64px;
-  height: 64px;
-  border-radius: 4px;
-  order: -1;
+.statusIndicator {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
 }
 
-/* 详细信息区域 */
-.details {
-  flex: 1;
+.online { 
+  background: #4CAF50; 
+}
+
+.offline { 
+  background: #f44336; 
+}
+
+.details p {
+  margin: 8px 0;
   font-size: 14px;
 }
 
-.detailItem {
-  margin: 6px 0;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+/* 新增图标样式（与原HTML结构一致） */
+.serverIcon {
+  width: 64px;
+  order: -1; /* 保持图标在左侧 */
 }
 
-.detailValue {
-  color: #bdbdbd;
-}
-
-/* 移动端适配 */
+/* 移动端适配（与原媒体查询相同） */
 @media (max-width: 480px) {
   .statusBox {
     flex-direction: column;
-    align-items: center;
   }
-
+  
   .serverIcon {
+    order: 0;
     width: 48px;
     height: 48px;
-    order: 0;
   }
-}
-
-/* 加载和错误状态 */
-.loading {
-  padding: 16px;
-  text-align: center;
-  color: #888;
-}
-
-.error {
-  composes: loading;
-  color: #ff5252;
 }
