@@ -8,7 +8,8 @@ html, body, #__next {
 
 /* 根容器 */
 .root-container {
-  width: 100vw;
+  width: 0vw;
+  height: 0vw;
   min-width: 280px;
   max-width: 420px;
   padding: 12px;
