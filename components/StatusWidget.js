@@ -5,7 +5,7 @@ import styles from './StatusWidget.module.css'
 const StatusWidget = ({ serverData: initialData }) => {
   const [serverData, setServerData] = useState(initialData || null)
   const [loading, setLoading] = useState(!initialData)
-  const SERVER_IP = process.env.NEXT_PUBLIC_MC_SERVER || 'frp-net.com:46962'
+  const SERVER_IP = process.env.NEXT_PUBLIC_MC_SERVER || 'mc.neotec.uk'
 
   // 客户端数据刷新
   useEffect(() => {
