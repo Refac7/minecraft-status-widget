@@ -1,0 +1,84 @@
+/* 组件容器 */
+.widgetContainer {
+  background: #1a1a1a;
+  color: #e0e0e0;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  margin: 10px;
+}
+
+/* 标题样式 */
+.title {
+  margin: 0 0 16px 0;
+  font-size: 18px;
+  color: #4CAF50;
+}
+
+/* 状态指示器 */
+.statusIndicator {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.online { background: #4CAF50; }
+.offline { background: #f44336; }
+
+/* 布局相关 */
+.statusBox {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+.serverIcon {
+  width: 64px;
+  height: 64px;
+  border-radius: 4px;
+  order: -1;
+}
+
+/* 详细信息区域 */
+.details {
+  flex: 1;
+  font-size: 14px;
+}
+
+.detailItem {
+  margin: 6px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.detailValue {
+  color: #bdbdbd;
+}
+
+/* 移动端适配 */
+@media (max-width: 480px) {
+  .statusBox {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .serverIcon {
+    width: 48px;
+    height: 48px;
+    order: 0;
+  }
+}
+
+/* 加载和错误状态 */
+.loading {
+  padding: 16px;
+  text-align: center;
+  color: #888;
+}
+
+.error {
+  composes: loading;
+  color: #ff5252;
+}
