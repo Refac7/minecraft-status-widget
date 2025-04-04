@@ -50,7 +50,7 @@ const StatusWidget = ({ serverData: initialData }) => {
         )}
         <div className={`${styles.statusIndicator} ${isOnline ? styles.online : styles.offline}`} />
         <div className={styles.details}>
-          <p>地址: <span>{safeData.hostname || '-'}</span></p>
+          <p>地址: <span>{SERVER_IP || '-'}</span></p>
           <p>版本: <span>{safeData.version || '-'}</span></p>
           <p>玩家: <span>
             {safeData.players 
