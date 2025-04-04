@@ -1,4 +1,4 @@
-##概述
+## 概述
 事情是这样的：我用tangly1024的NotionNext在vercel构建了一个静态博客
 
 这天想要把Minecraft服务器的状态实时显示在博客上，就去找了https://api.mcstatus.io/ 的svg widget服务，把它嵌入到notion数据库后发现它不会自动更新，只有嵌入那时才刷新一次，后来就变成静态svg了
@@ -7,7 +7,7 @@
 
 顺着这条思路发展，我应该可以用vercel做一个静态网页，来实现这个功能，如你所见，我基于React开发了这个vercel示例，实现通过url嵌入一个状态页面而无需对网站源码做任何的更改。
 
-##效果图
+## 效果图
 ![IMG_0842](https://github.com/user-attachments/assets/fbbb038c-5e09-4646-b0f5-ac3669f92f15)
 
 ## 如何使用？
