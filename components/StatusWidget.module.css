@@ -1,8 +1,18 @@
+<<<<<<< HEAD
 /* 现代化设计 - StatusWidget.module.css */
 .rootContainer {
   width: 100%;
   height: 100%;
   font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+=======
+/* 最终修正版 StatusWidget.module.css */
+.rootContainer {
+  all: initial; /* 重置所有继承样式 */
+  display: block;
+  width: 100%;
+  height: 100%;
+  isolation: isolate; /* 创建新的层叠上下文 */
+>>>>>>> e7daf0bf8e3b0989fa17c89ff3138f814f6e2de7
 }
 
 .container {
@@ -13,6 +23,7 @@
   width: 100%;
   height: 100%;
   box-sizing: border-box;
+<<<<<<< HEAD
   border-radius: 0; /* 按需求移除圆角 */
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(4px);
@@ -43,6 +54,16 @@
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+=======
+  position: relative;
+  z-index: 1; /* 确保内容在上层 */
+}
+
+/* 移除所有可能遮挡内容的伪元素 */
+.container::before,
+.container::after {
+  content: none !important;
+>>>>>>> e7daf0bf8e3b0989fa17c89ff3138f814f6e2de7
 }
 
 .statusBox {
@@ -50,8 +71,11 @@
   align-items: center;
   gap: 16px;
   width: 100%;
+  position: relative;
+  z-index: 2; /* 内容层级提高到最前 */
 }
 
+/* 状态指示器样式保持不变 */
 .statusIndicator {
   width: 12px;
   height: 12px;
@@ -60,6 +84,7 @@
   box-shadow: 0 0 8px currentColor;
 }
 
+<<<<<<< HEAD
 .online { 
   background: #4caf50;
   color: rgba(76, 175, 80, 0.4);
@@ -69,10 +94,20 @@
   background: #f44336;
   color: rgba(244, 67, 54, 0.4);
 }
+=======
+.online { background: #4CAF50; }
+.offline { background: #f44336; }
+>>>>>>> e7daf0bf8e3b0989fa17c89ff3138f814f6e2de7
 
+/* 内容区域确保可见 */
 .details {
   flex: 1;
   min-width: 0;
+<<<<<<< HEAD
+=======
+  position: relative;
+  z-index: 3;
+>>>>>>> e7daf0bf8e3b0989fa17c89ff3138f814f6e2de7
 }
 
 .detailRow {
@@ -80,6 +115,7 @@
   justify-content: space-between;
   margin: 10px 0;
   font-size: 14px;
+<<<<<<< HEAD
 }
 
 .detailLabel {
@@ -94,9 +130,16 @@
   max-width: 60%;
   overflow: hidden;
   text-overflow: ellipsis;
+=======
+  line-height: 1.4;
+  color: white !important; /* 强制文字颜色 */
+  text-shadow: none !important;
+>>>>>>> e7daf0bf8e3b0989fa17c89ff3138f814f6e2de7
 }
 
+/* 强制显示服务器图标 */
 .serverIcon {
+<<<<<<< HEAD
   width: 64px;
   height: 64px;
   border-radius: 6px;
@@ -139,25 +182,53 @@
 .playersCount {
   color: #4caf50;
   font-weight: 500;
+=======
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* 禁用交互但不影响显示 */
+.noInteract {
+  pointer-events: none !important;
+  user-select: none !important;
+  -webkit-user-drag: none !important;
+>>>>>>> e7daf0bf8e3b0989fa17c89ff3138f814f6e2de7
 }
 
 /* 移动端适配 */
 @media (max-width: 480px) {
   .container {
+<<<<<<< HEAD
     padding: 12px;
   }
   
   .serverIcon {
     width: 56px;
     height: 56px;
+=======
+    padding: 10px;
+  }
+  
+  .serverIcon {
+    width: 42px;
+    height: 42px;
+>>>>>>> e7daf0bf8e3b0989fa17c89ff3138f814f6e2de7
   }
   
   .detailRow {
     font-size: 13px;
+<<<<<<< HEAD
     margin: 8px 0;
   }
   
   .title {
     font-size: 16px;
+=======
+    white-space: normal; /* 小屏幕允许换行 */
+>>>>>>> e7daf0bf8e3b0989fa17c89ff3138f814f6e2de7
   }
 }
