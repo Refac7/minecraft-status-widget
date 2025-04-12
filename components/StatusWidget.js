@@ -1,4 +1,3 @@
-// components/StatusWidget.js
 import { useState, useEffect } from 'react'
 import styles from './StatusWidget.module.css'
 
@@ -7,7 +6,6 @@ const StatusWidget = ({ serverData: initialData }) => {
   const [loading, setLoading] = useState(!initialData)
   const SERVER_IP = process.env.NEXT_PUBLIC_MC_SERVER || 'mc.neotec.uk'
 
-  // 客户端数据刷新
   useEffect(() => {
     if (!initialData) {
       const fetchData = async () => {
@@ -28,17 +26,27 @@ const StatusWidget = ({ serverData: initialData }) => {
     }
   }, [SERVER_IP, initialData])
 
-  // 安全访问数据
   const safeData = serverData || {}
   const isOnline = safeData.online || false
 
   if (loading) {
-    return <div className={styles.loading}>加载中...</div>
+    return (
+      <div className={styles.loading}>
+        <span className={styles.loadingSpinner} />
+        加载服务器数据...
+      </div>
+    )
   }
 
   return (
     <div className={styles.container}>
-      <h2>服务器状态</h2>
+      <div className={styles.header}>
+        <h2 className={styles.title}>服务器状态</h2>
+        <div className={`${styles.statusBadge} ${isOnline ? styles.online : styles.offline}`}>
+          {isOnline ? '在线' : '离线'}
+        </div>
+      </div>
+      
       <div className={styles.statusBox}>
         {safeData.icon && (
           <img
@@ -48,18 +56,33 @@ const StatusWidget = ({ serverData: initialData }) => {
             onError={(e) => (e.target.style.display = 'none')}
           />
         )}
-        <div className={`${styles.statusIndicator} ${isOnline ? styles.online : styles.offline}`} />
+        
         <div className={styles.details}>
-          <p>地址: <span>{SERVER_IP || '-'}</span></p>
-          <p>版本: <span>{safeData.version || '-'}</span></p>
-          <p>玩家: <span>
-            {safeData.players 
-              ? `${safeData.players.online}/${safeData.players.max}`
-              : '-'}
-          </span></p>
-          <p>描述: <span>
-            {safeData.motd?.clean?.join(' ') || '服务器当前离线'}
-          </span></p>
+          <div className={styles.detailRow}>
+            <span className={styles.detailLabel}>服务器地址:</span>
+            <span className={styles.detailValue}>{SERVER_IP || '-'}</span>
+          </div>
+          
+          <div className={styles.detailRow}>
+            <span className={styles.detailLabel}>游戏版本:</span>
+            <span className={styles.detailValue}>{safeData.version || '-'}</span>
+          </div>
+          
+          <div className={styles.detailRow}>
+            <span className={styles.detailLabel}>在线玩家:</span>
+            <span className={`${styles.detailValue} ${styles.playersCount}`}>
+              {safeData.players 
+                ? `${safeData.players.online}/${safeData.players.max}`
+                : '-'}
+            </span>
+          </div>
+          
+          <div className={styles.detailRow}>
+            <span className={styles.detailLabel}>服务器描述:</span>
+            <span className={styles.detailValue}>
+              {safeData.motd?.clean?.join(' ') || '服务器当前离线'}
+            </span>
+          </div>
         </div>
       </div>
     </div>
