@@ -1,75 +1,44 @@
-/* 现代化设计 - StatusWidget.module.css */
+/* 简洁深色版本 - StatusWidget.module.css */
 .rootContainer {
   width: 100%;
   height: 100%;
   font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
 }
 
-/* 修改.container样式 */
 .container {
-  background: linear-gradient(145deg, #1e1e1e, #2a2a2a);
+  background: #2d2d2d; /* 纯色背景替代渐变 */
   color: #ffffff;
   padding: 16px;
   margin: 0;
   width: 100%;
+  height: 100%;
   box-sizing: border-box;
   border-radius: 0;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* 修改.header样式 */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 16px;
-  padding: 12px 16px;
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-  width: calc(100% + 32px); /* 扩展到容器边缘 */
-  margin-left: -16px; /* 补偿容器的padding */
-  position: relative;
-  z-index: 1;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%; /* 确保宽度填满容器 */
 }
 
-/* 添加伪元素创建全宽渐变效果 */
-.header::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -16px;
-  right: -16px;
-  bottom: 0;
-  background: linear-gradient(90deg, rgba(76,175,80,0.1), rgba(244,67,54,0.1));
-  z-index: -1;
-  border-radius: 4px;
-}
-
-/* 修改.title样式 */
 .title {
   margin: 0;
   font-size: 18px;
   font-weight: 600;
   color: #ffffff;
-  letter-spacing: 0.5px;
-  position: relative;
-  z-index: 2;
 }
 
-/* 修改.statusBadge样式 */
 .statusBadge {
-  padding: 6px 12px;
-  border-radius: 16px;
+  padding: 4px 10px;
+  border-radius: 12px;
   font-size: 12px;
   font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(4px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  position: relative;
-  z-index: 2;
 }
 
 .statusBox {
@@ -84,17 +53,16 @@
   height: 12px;
   border-radius: 50%;
   flex-shrink: 0;
-  box-shadow: 0 0 8px currentColor;
 }
 
 .online { 
   background: #4caf50;
-  color: rgba(76, 175, 80, 0.4);
+  box-shadow: 0 0 6px #4caf50; /* 保留轻微发光效果 */
 }
 
 .offline { 
   background: #f44336;
-  color: rgba(244, 67, 54, 0.4);
+  box-shadow: 0 0 6px #f44336;
 }
 
 .details {
@@ -111,16 +79,12 @@
 
 .detailLabel {
   color: rgba(255, 255, 255, 0.7);
-  font-weight: 500;
 }
 
 .detailValue {
   color: #ffffff;
-  font-weight: 400;
   text-align: right;
   max-width: 60%;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .serverIcon {
@@ -128,44 +92,7 @@
   height: 64px;
   border-radius: 6px;
   object-fit: cover;
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s ease;
-}
-
-.serverIcon:hover {
-  transform: scale(1.05);
-}
-
-.loading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 14px;
-}
-
-/* 动画加载指示器 */
-.loadingSpinner {
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  border: 3px solid rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  border-top-color: #ffffff;
-  animation: spin 1s ease-in-out infinite;
-  margin-right: 8px;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-/* 玩家数量特殊样式 */
-.playersCount {
-  color: #4caf50;
-  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* 移动端适配 */
@@ -181,10 +108,5 @@
   
   .detailRow {
     font-size: 13px;
-    margin: 8px 0;
-  }
-  
-  .title {
-    font-size: 16px;
   }
 }
