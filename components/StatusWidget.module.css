@@ -1,66 +1,60 @@
-/* 最简无边框版本 */
-.rootContainer {
-  width: 100%;
-  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
-}
-
+/* 方形对齐布局 */
 .container {
   background: #2d2d2d;
-  color: #ffffff;
+  color: white;
   padding: 16px;
-  width: 100%;
+  width: 280px; /* 固定宽度形成方形 */
+  height: 280px; /* 固定高度形成方形 */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .title {
   margin: 0;
   font-size: 18px;
   font-weight: 600;
-  color: #ffffff;
 }
 
-.statusBadge {
-  padding: 4px 10px;
-  border-radius: 12px;
-  font-size: 12px;
-  font-weight: 500;
-  background: rgba(0, 0, 0, 0.3);
-}
-
-.statusBox {
-  display: flex;
+.statusContent {
+  flex: 1;
+  display: grid;
+  grid-template-columns: auto 1fr;
   align-items: center;
-  gap: 16px;
+  gap: 12px 8px;
 }
 
 .statusIndicator {
   width: 12px;
   height: 12px;
-  border-radius: 50%;
+  border-radius: 50;
+  grid-row: span 4;
+  align-self: start;
+  margin-top: 3px; /* 视觉对齐修正 */
 }
 
-.online { background: #4caf50; }
-.offline { background: #f44336; }
-
 .detailRow {
-  display: flex;
-  justify-content: space-between;
-  margin: 8px 0;
-  font-size: 14px;
+  display: contents; /* 启用网格布局 */
 }
 
 .detailLabel {
+  text-align: right;
   color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
 }
 
 .detailValue {
-  color: #ffffff;
+  text-align: left;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .serverIcon {
@@ -68,15 +62,20 @@
   height: 64px;
   border-radius: 6px;
   object-fit: cover;
+  grid-column: 1 / -1;
+  justify-self: center;
+  margin-bottom: 12px;
 }
+
+/* 状态色 */
+.online { background: #4caf50; }
+.offline { background: #f44336; }
 
 /* 移动端适配 */
 @media (max-width: 480px) {
   .container {
-    padding: 12px;
-  }
-  .serverIcon {
-    width: 56px;
-    height: 56px;
+    width: 100%;
+    height: auto;
+    min-height: 260px;
   }
 }
