@@ -1,4 +1,12 @@
-/* 修正后的StatusWidget.module.css */
+/* 最终修正版 StatusWidget.module.css */
+.rootContainer {
+  all: initial; /* 重置所有继承样式 */
+  display: block;
+  width: 100%;
+  height: 100%;
+  isolation: isolate; /* 创建新的层叠上下文 */
+}
+
 .container {
   background: #2d2d2d;
   color: white;
@@ -6,9 +14,15 @@
   margin: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden; /* 防止内容溢出 */
-  border: none; /* 移除边框 */
-  box-sizing: border-box; /* 确保padding包含在尺寸内 */
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1; /* 确保内容在上层 */
+}
+
+/* 移除所有可能遮挡内容的伪元素 */
+.container::before,
+.container::after {
+  content: none !important;
 }
 
 .statusBox {
@@ -16,8 +30,11 @@
   align-items: center;
   gap: 12px;
   width: 100%;
+  position: relative;
+  z-index: 2; /* 内容层级提高到最前 */
 }
 
+/* 状态指示器样式保持不变 */
 .statusIndicator {
   width: 16px;
   height: 16px;
@@ -25,42 +42,36 @@
   flex-shrink: 0;
 }
 
-.online { 
-  background: #4CAF50; 
-}
+.online { background: #4CAF50; }
+.offline { background: #f44336; }
 
-.offline { 
-  background: #f44336; 
-}
-
-.loading {
-  padding: 12px;
-  text-align: center;
-  color: #888;
-  width: 100%;
-}
-
+/* 内容区域确保可见 */
 .details {
   flex: 1;
-  min-width: 0; /* 防止文本溢出 */
+  min-width: 0;
+  position: relative;
+  z-index: 3;
 }
 
 .details p {
   margin: 6px 0;
   font-size: 14px;
   line-height: 1.4;
-  white-space: nowrap; /* 防止文字换行 */
-  overflow: hidden;
-  text-overflow: ellipsis; /* 文字过长显示省略号 */
+  color: white !important; /* 强制文字颜色 */
+  text-shadow: none !important;
 }
 
+/* 强制显示服务器图标 */
 .serverIcon {
   width: 48px;
   height: 48px;
   flex-shrink: 0;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
-/* 禁用交互的全局类 */
+/* 禁用交互但不影响显示 */
 .noInteract {
   pointer-events: none !important;
   user-select: none !important;
@@ -70,19 +81,16 @@
 /* 移动端适配 */
 @media (max-width: 480px) {
   .container {
-    padding: 8px;
-  }
-  
-  .statusBox {
-    gap: 8px;
+    padding: 10px;
   }
   
   .serverIcon {
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
   }
   
   .details p {
     font-size: 13px;
+    white-space: normal; /* 小屏幕允许换行 */
   }
 }
