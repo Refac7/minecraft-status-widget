@@ -8,7 +8,11 @@
 顺着这条思路发展，我应该可以用vercel做一个静态网页，来实现这个功能，如你所见，我基于React开发了这个vercel示例，实现通过url嵌入一个状态页面而无需对网站源码做任何的更改。
 
 ## 效果图
-![IMG_0842](https://github.com/user-attachments/assets/fbbb038c-5e09-4646-b0f5-ac3669f92f15)
+
+<center class ='img'>
+<img title="Origin" src="https://github.com/user-attachments/assets/fbbb038c-5e09-4646-b0f5-ac3669f92f15" width="30%">
+<img title="Advanced" src="https://github.com/user-attachments/assets/a8f92fb0-26f6-47eb-bf43-50dc45aef377" width="55%">
+</center>
 
 ## 如何使用？
 1.复刻此仓库到您的GitHub账户下
