@@ -15,8 +15,8 @@
 ## 效果展示
 
 <center class='img'>
-    <img title="原始效果" src="https://github.com/user-attachments/assets/fbbb038c-5e09-4646-bf0f5-ac3669f92f15" width="30%">
-    <img title="优化效果" src="https://github.com/user-attachments/assets/a8f92fb0-26f6-47eb-bf43-50dc45aef377" width="55%">
+    <img title="v1.1.0" src="https://github.com/user-attachments/assets/fbbb038c-5e09-4646-b0f5-ac3669f92f15" width="30%">
+    <img title="v2.1.0" src="https://github.com/user-attachments/assets/a8f92fb0-26f6-47eb-bf43-50dc45aef377" width="55%">
 </center>
 
 ## 使用指南
