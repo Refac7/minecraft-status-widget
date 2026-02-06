@@ -1,10 +1,16 @@
 import { useState, useEffect } from 'react'
 import styles from './StatusWidget.module.css'
+import { CONFIG } from '../pages/config'
 
 const StatusWidget = ({ serverData: initialData }) => {
   const [serverData, setServerData] = useState(initialData || null)
   const [loading, setLoading] = useState(!initialData)
-  const SERVER_IP = process.env.NEXT_PUBLIC_MC_SERVER || 'mc.neotec.uk'
+
+  if (!CONFIG.srv) {
+    var SERVER_IP = `${CONFIG.server}:${CONFIG.port}`
+  } else {
+    var SERVER_IP = CONFIG.server
+  }
 
   useEffect(() => {
     if (!initialData) {

@@ -24,8 +24,8 @@
 ### 快速开始
 1. 复刻此仓库到您的 GitHub 账户
 2. 修改配置文件：
-   - 找到 `components/StatusWidget.js`
-   - 将 `const SERVER_IP = process.env.NEXT_PUBLIC_MC_SERVER || 'mc.neotec.uk'` 中的 `mc.neotec.uk` 替换为您的服务器地址（包括端口）
+   - 找到 `/src/config.ts`
+   - 将 `根据指引填写信息`
 3. 部署到 Vercel（部署方法请自行搜索）
 4. 将生成的网址嵌入到您的网页中
 

@@ -1,9 +1,15 @@
 // pages/index.js
 import StatusWidget from '../components/StatusWidget'
+import { CONFIG } from './config'
+
+if (!CONFIG.srv) {
+  var SERVER_IP = `${CONFIG.server}:${CONFIG.port}`
+} else {
+  var SERVER_IP = CONFIG.server
+}
 
 export async function getServerSideProps() {
   try {
-//    const SERVER_IP = process.env.NEXT_PUBLIC_MC_SERVER || 'mc.neotec.uk'
     const res = await fetch(`https://api.mcsrvstat.us/2/${SERVER_IP}`)
     const serverData = await res.json()
     return { props: { serverData } }
