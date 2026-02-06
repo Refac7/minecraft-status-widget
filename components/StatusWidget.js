@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import styles from './StatusWidget.module.css'
-import { CONFIG } from '../pages/config'
+import { CONFIG } from '../src/config'
 
 const StatusWidget = ({ serverData: initialData }) => {
   const [serverData, setServerData] = useState(initialData || null)

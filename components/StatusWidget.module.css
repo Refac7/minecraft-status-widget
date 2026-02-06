@@ -58,12 +58,12 @@
 
 .online { 
   background: #4caf50;
-  color: rgba(76, 175, 80, 0.4);
+  color: #ffffff;
 }
 
 .offline { 
   background: #f44336;
-  color: rgba(244, 67, 54, 0.4);
+  color: #ffffff;
 }
 
 .details {

@@ -1,6 +1,6 @@
 // pages/index.js
-import StatusWidget from '../components/StatusWidget'
-import { CONFIG } from './config'
+import StatusWidget from '../../components/StatusWidget'
+import { CONFIG } from '../config'
 
 if (!CONFIG.srv) {
   var SERVER_IP = `${CONFIG.server}:${CONFIG.port}`

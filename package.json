@@ -15,7 +15,7 @@
   "license": "MIT",
   "description": "",
   "dependencies": {
-    "next": "15.2.8",
+    "next": "^15.5.12",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
