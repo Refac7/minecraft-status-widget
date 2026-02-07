@@ -3,7 +3,7 @@ html, body, #__next {
   margin: 0;
   padding: 0;
   min-height: auto !important;
-  background: #2d2d2d !important;
+  background: #ffffff !important;
 }
 
 /* 根容器 */
@@ -22,7 +22,7 @@ html, body, #__next {
   bottom: 20px;    /* 距离底部距离 */
   z-index: 9999;   /* 确保悬浮在最上层 */
   width: 300px;    /* 固定宽度 */
-  background: #2d2d2d;
+  background: #ffffff;
   border-radius: 8px;
   padding: 15px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.25);
